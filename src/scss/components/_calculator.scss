@@ -1,0 +1,174 @@
+@use "../settings/fonts" as f;
+@use "../settings/colors" as c;
+@use "../tools/mixins" as bp;
+
+.calc {
+  padding: 80px 0;
+  background-color: #f7f7f7;
+
+  @include bp.respond(tablet) {
+    padding: 30px 15px;
+  }
+
+  .title {
+    text-align: center;
+  }
+
+  &__columns {
+    margin: 50px auto 0;
+    display: flex;
+    max-width: 865px;
+
+    @include bp.respond(tablet) {
+      flex-direction: column;
+    }
+  }
+
+  &__form {
+    width: 50%;
+    margin-right: 20px;
+    font-size: 13px;
+
+    @include bp.respond(tablet) {
+      width: 100%;
+      margin-right: 0;
+    }
+  }
+
+  &__input input,
+  &__select .select__input {
+    padding-top: 11px;
+    padding-bottom: 11px;
+    padding-left: 20px;
+    font-size: 13px;
+    line-height: 13px;
+    color: c.$light-color;
+    border-radius: 6px;
+    border: 1px solid c.$main-color;
+    width: 100%;
+    box-shadow: 0 3px 6px c.$primary-shadow-color;
+    margin-bottom: 20px;
+    background-color: white;
+  }
+
+  &__input {
+    input {
+      &::placeholder {
+        color: c.$light-color;
+      }
+    }
+  }
+
+  &__select {
+    position: relative;
+    font-family: f.$secondary-font;
+
+    .select__input {
+      height: 40px;
+      padding: 13px 20px;
+      cursor: pointer;
+
+      &::after {
+        content: "";
+        background-image: url("../../assets/ArrowDown.svg");
+        display: block;
+        width: 22px;
+        height: 22px;
+        position: absolute;
+        right: 14px;
+        top: 9px;
+      }
+    }
+
+    .select__dropdown {
+      display: none;
+      position: absolute;
+      z-index: 1;
+      background-color: white;
+      width: 100%;
+      border-radius: 6px;
+      border: 1px solid c.$primary-color;
+      overflow: hidden;
+
+      li {
+        font-size: 13px;
+        padding: 10px 20px;
+        cursor: pointer;
+
+        &:hover {
+          background-color:  #f7f7f7;
+        }
+      }
+    }
+
+    &.open {
+      .select__input::after {
+        transform: rotate(180deg);
+      }
+
+      .select__dropdown {
+        display: block;
+      }
+    }
+  }
+
+  .form__checkbox {
+    padding-bottom: 20px;
+    align-items: center;
+  }
+
+  &__summary {
+    width: 50%;
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+
+    @include bp.respond(tablet) {
+      width: 100%;
+      margin-left: 0;
+      margin-top: 30px;
+    }
+
+    .summary__total,
+    .list__item {
+      box-shadow: 0 3px 6px rgba(0, 0, 0, .16);
+      border-radius: 6px;
+      justify-content: space-between;
+      align-items: center;
+      color: white;
+      font-size: 14px;
+      font-family: f.$secondary-font;
+      display: none;
+
+      &.open {
+        display: flex;
+      }
+    }
+
+    .summary__total {
+      width: 50%;
+      align-self: flex-end;
+      margin-top: 22px;
+      padding: 8px 20px;
+      background-color: c.$main-color;
+
+      .total__price {
+        font-size: 20px;
+        font-weight: 700;
+      }
+    }
+
+    .list__item {
+      padding: 6px 20px;
+      background-color: c.$secondary-color;
+      margin-bottom: 8px;
+
+      .item {
+        &__price {
+          font-weight: 700;
+          font-size: 18px;
+        }
+      }
+    }
+  }
+}

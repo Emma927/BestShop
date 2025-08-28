@@ -1,0 +1,244 @@
+@use "../settings/fonts" as f;
+@use "../settings/colors" as c;
+@use "../tools/mixins" as bp;
+
+.benefits {
+  background-color: #F7F7F7;
+  padding: 105px 0;
+
+  @include bp.respond(tablet) {
+    padding: 50px 0;
+  }
+
+  &__container {
+
+    @include bp.respond(tablet) {
+      padding: 0 15px;
+    }
+  }
+
+  &-article {
+    background-color: white;
+    border-radius: 5px;
+    margin-bottom: 37px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+
+    @include bp.respond(tablet) {
+      display: flex;
+      flex-direction: column-reverse !important;
+      align-items: center;
+      padding: 0 20px;
+      margin-bottom: 40px;
+    }
+
+    &__title {
+      margin-bottom: 30px;
+
+      @include bp.respond(mobile) {
+        font-size: 30px;
+      }
+    }
+
+    &__text {
+      max-width: 416px;
+      margin: 91px 0 91px 35px;
+
+      @include bp.respond(tablet) {
+        margin: 0;
+        max-width: none;
+      }
+
+      &::after {
+        content: "";
+        width: 328px;
+        height: 4px;
+        background-color: var(--accent-color);
+        display: block;
+        margin-top: 50px;
+
+        @include bp.respond(tablet) {
+          display: none;
+        }
+      }
+    }
+
+    &__description {
+      font-family: f.$secondary-font;
+      line-height: 22px;
+
+      @include bp.respond(mobile) {
+        margin-top: 30px;
+        font-size: 14px;
+      }
+    }
+
+    &__picture {
+      position: relative;
+    }
+
+    &__img {
+      position: relative;
+      z-index: 2;
+    }
+
+    &--notebook {
+      --accent-color: #{c.$primary-color};
+
+      .benefits-article__picture {
+        margin-right: 117px;
+        margin-bottom: 38px;
+
+        &::after {
+          content: "";
+          width: 180px;
+          height: 180px;
+          background-color: var(--accent-color);
+          border-radius: 41px;
+          transform: rotate(45deg);
+          position: absolute;
+          top: -40px;
+          right: 0;
+          display: block;
+
+          @include bp.respond(tablet) {
+            width: 90px;
+            height: 90px;
+            top: -20px;
+            right: -5px;
+          }
+        }
+
+        @include bp.respond(tablet) {
+          margin-top: 40px;
+          margin-right: 0;
+          margin-bottom: 0;
+        }
+      }
+
+      .benefits-article__img {
+        width: 386px;
+        height: auto;
+
+        @include bp.respond(tablet) {
+          width: 193px;
+        }
+      }
+
+      .benefits-article__text {
+        @include bp.respond(tablet) {
+          margin: 30px 0;
+        }
+      }
+    }
+
+    &--phone {
+      --accent-color: #{c.$main-color};
+      flex-direction: row-reverse;
+      padding: 0 20px 0 70px;
+
+      @include bp.respond(tablet) {
+        padding: 0 20px;
+      }
+
+      .benefits-article__picture {
+        &::after {
+          content: "";
+          width: 320px;
+          height: 320px;
+          background-color: var(--accent-color);
+          display: block;
+          border-radius: 50%;
+          position: absolute;
+          top: -20px;
+          left: 0;
+
+          @include bp.respond(tablet) {
+            width: 131px;
+            height: 131px;
+            top: -10px;
+          }
+        }
+
+        @include bp.respond(tablet) {
+          margin-top: 20px;
+          margin-right: 0;
+          margin-bottom: 0;
+        }
+      }
+
+      .benefits-article {
+        &__img {
+          width: 426px;
+          height: auto;
+
+          @include bp.respond(tablet) {
+            width: 175px;
+            right: -5px;
+          }
+        }
+
+        &__text {
+          margin: 70px 0;
+
+          @include bp.respond(tablet) {
+            margin-top: 40px;
+            margin-bottom: 25px;
+          }
+        }
+      }
+    }
+  }
+
+  &__articles {
+    --accent-color: #{c.$secondary-color};
+    display: flex;
+
+    @include bp.respond(tablet) {
+      flex-direction: column;
+    }
+
+    > article {
+      margin-bottom: 0;
+    }
+
+    .benefits-article--solo {
+      max-width: 620px;
+
+      @include bp.respond(tablet) {
+        max-width: none;
+      }
+
+      .benefits-article__text {
+        max-width: none;
+        margin: 70px 35px;
+
+        @include bp.respond(tablet) {
+          margin: 30px 0;
+        }
+      }
+    }
+
+    .benefits-article__img--single {
+      flex-grow: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: var(--accent-color);
+      border: none;
+      margin-left: 60px;
+
+      @include bp.respond(tablet) {
+        margin-left: 0;
+        margin-top: -5px;
+      }
+
+      .benefits-article__img {
+        width: 295px;
+        height: auto;
+        margin-top: 55px;
+      }
+    }
+  }
+}

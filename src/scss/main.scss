@@ -1,0 +1,20 @@
+/* Kolejność importów wg ITCSS */
+/* SETTINGS */
+@use "settings/fonts";
+@use "settings/colors";
+/* TOOLS */
+@use "tools/mixins";
+/* GENERIC */
+@use "generic/reset";
+/* COMPONENTS */
+@use "components/base";
+@use "components/buttons";
+@use "components/header";
+@use "components/banner";
+@use "components/statistics";
+@use "components/benefits";
+@use "components/pricing";
+@use "components/contact";
+@use "components/form";
+@use "components/footer";
+@use "components/calculator";

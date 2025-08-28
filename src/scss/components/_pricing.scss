@@ -1,0 +1,171 @@
+@use "../settings/fonts" as f;
+@use "../settings/colors" as c;
+@use "../tools/mixins" as bp;
+
+.pricing {
+  margin-top: 100px;
+  margin-bottom: 79px;
+
+  @include bp.respond(notebook) {
+    margin-top: 53px;
+    margin-bottom: 103px;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &-articles {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    gap: 58px;
+
+    @include bp.respond(notebook) {
+      flex-direction: column;
+      width: 100%;
+    }
+  }
+
+  &-article {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 372px;
+    border: 1px solid var(--accent-color);
+    border-radius: 18px;
+    padding-top: 34px;
+
+    @include bp.respond(notebook) {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 25px 10px 0 10px;
+      max-width: 372px;
+      width: 100%;
+    }
+
+    &__details {
+      width: 50%;
+    }
+
+    &--basic {
+      --accent-color: #{c.$primary-color};
+
+      .pricing__costs {
+        color: var(--accent-color);
+        margin-bottom: 82px;
+
+        @include bp.respond(notebook) {
+         margin-bottom: 0;
+        }
+      }
+    }
+
+    &--professional {
+      --accent-color: #{c.$main-color};
+      width: 405px;
+      box-shadow: 5px 10px 27px #07ACE629;
+
+      @include bp.respond(notebook) {
+        max-width: 400px;
+        width: 100%;
+      }
+
+      .pricing__costs {
+        color: var(--accent-color);
+      }
+
+      .pricing__offer {
+        margin-bottom: 61px;
+
+        @include bp.respond(notebook) {
+          margin-bottom: 0;
+        }
+      }
+    }
+
+    &--premium {
+      --accent-color: #{c.$secondary-color};
+
+      .pricing__costs {
+        color: var(--accent-color);
+      }
+
+      .pricing__offer {
+        margin-bottom: 50px;
+
+        @include bp.respond(notebook) {
+          margin-bottom: 0;
+        }
+      }
+    }
+
+    &__title {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      background-color: var(--accent-color);
+      font-family: f.$secondary-font;
+      font-size: 13px;
+      position: relative;
+      bottom: -25px;
+    }
+  }
+
+  &__costs {
+    font-size: 46px;
+    font-family: f.$secondary-font;
+  }
+
+  &__offer {
+    margin-top: 20px;
+    font-size: 12px;
+    font-weight: 700;
+  }
+
+  &__menu {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-bottom: 55px;
+
+    @include bp.respond(notebook) {
+      width: 50%;
+      padding-bottom: 0;
+    }
+
+    &-elem {
+      font-family: f.$secondary-font;
+      font-size: 14px;
+
+      &::before {
+        content:"";
+        background-image: url("../../assets/Ckechmark-1.svg");
+        width: 11px;
+        height: 11px;
+        margin-right: 10px;
+        display: inline-block;
+      }
+
+      &--not::before {
+        background-image: url("../../assets/Close.svg");
+      }
+    }
+  }
+
+  &__btn {
+    background-color: var(--accent-color);
+    padding-right: 65px;
+    padding-left: 65px;
+    box-shadow: 3px 10px 14px  #07ACE629;
+  }
+}

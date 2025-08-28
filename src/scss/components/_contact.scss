@@ -1,0 +1,86 @@
+@use "../settings/fonts" as f;
+@use "../settings/colors" as c;
+@use "../tools/mixins" as bp;
+
+.contact {
+  margin-top: 100px;
+  margin-bottom: 59px;
+
+  @include bp.respond(tablet) {
+    margin-bottom: 44px;
+  }
+
+  .container {
+    display: flex;
+    justify-content: center;
+    padding: 0 100px;
+
+    @include bp.respond(tablet) {
+      flex-direction: column;
+    }
+  }
+
+  &__column {
+    width: 50%;
+
+    @include bp.respond(tablet) {
+      width: 100%;
+    }
+  }
+
+  &__info {
+    .banner__title {
+      margin-bottom: 22px;
+
+      @include bp.respond(tablet) {
+        font-size: 40px;
+        margin-bottom: 5px;
+      }
+    }
+  }
+
+  &__text {
+    margin-bottom: 40px;
+    font-family: f.$secondary-font;
+
+    @include bp.respond(tablet) {
+      margin-bottom: 35px;
+    }
+  }
+
+  &__data {
+    display: flex;
+    gap: 20px;
+    font-family: f.$secondary-font;
+
+    @include bp.respond(tablet) {
+      flex-direction: column;
+      gap: 10px;
+    }
+  }
+
+  &__email {
+    display: flex;
+    align-items: center;
+  }
+
+  &__link {
+    color: c.$light-color;
+  }
+
+  &__img {
+    width: 27px;
+    height: 27px;
+    margin-right: 10px;
+  }
+
+  &__phone {
+    display: flex;
+    align-items: center;
+    color: c.$light-color;
+
+    @include bp.respond(tablet) {
+      margin-bottom: 10px;
+    }
+  }
+}

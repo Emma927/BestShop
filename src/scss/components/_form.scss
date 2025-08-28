@@ -1,0 +1,116 @@
+@use "../settings/fonts" as f;
+@use "../settings/colors" as c;
+@use "../tools/mixins" as bp;
+
+.form {
+  display: flex;
+  flex-direction: column;
+  /*max-width: 440px;*/
+
+  @include bp.respond(tablet) {
+    margin-top: 20px;
+  }
+
+  label {
+    &[for="name"],
+    &[for="email"] {
+      font-size: 11px;
+      color: c.$main-color;
+      letter-spacing: 3.28px;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    &[for="email"] {
+      margin-top: 42px;
+    }
+  }
+
+  input {
+    color: #15154c;
+
+    &[type="text"] {
+      border: none;
+      border-bottom: 1px solid #95989A;
+      line-height: 2.625rem;
+
+      &:focus {
+        &::placeholder {
+          color: transparent;
+        }
+      }
+    }
+
+    &[name="email"] {
+      margin-bottom: 30px;
+    }
+
+    &::placeholder {
+      color: #95989A;
+    }
+
+    &:focus {
+      box-shadow: 1px 1px 10px 5px rgb(94, 190, 232);
+      border: none;
+    }
+  }
+
+  @include bp.respond(tablet) {
+    width: 100%;
+  }
+
+  &__checkbox {
+    cursor: pointer;
+    display: flex;
+    gap: 10px;
+    line-height: 17px;
+    color: c.$light-color;
+    font-size: 12px;
+    font-family: f.$secondary-font;
+    margin-right: 10px;
+    position: relative;
+
+    input {
+      position: absolute;
+      opacity: 0;
+      cursor: pointer;
+      height: 0;
+      width: 0;
+
+      &:checked {
+        + span {
+          background-image: url("../../assets/Checkmark.svg");
+          background-position: center;
+          background-repeat: no-repeat;
+        }
+      }
+    }
+
+    span {
+      height: 24px;
+      flex-shrink: 0;
+      flex-basis: 24px;
+      border: 1px solid #95989A;
+      border-radius: 4px;
+      cursor: pointer;
+      background-color: white;
+    }
+  }
+
+  button {
+    &[type="submit"] {
+      align-self: flex-end;
+      border: none;
+      padding: 20px 97px;
+      font-size: 13px;
+      font-family: f.$secondary-font;
+      margin-top: 20px;
+      transition: .3s ease-in box-shadow;
+
+      &:active {
+        box-shadow: 5px 10px 14px #166c69;
+      }
+    }
+  }
+}

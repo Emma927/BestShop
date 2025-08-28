@@ -1,0 +1,39 @@
+@use "../settings/fonts" as f;
+@use "../settings/colors" as c;
+@use "../tools/mixins" as bp;
+
+.footer {
+  height: 89px;
+  box-shadow: 0 -5px 40px #00000029;
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+  }
+
+  &__column {
+    &:nth-child(2) {
+      display: flex;
+    }
+  }
+
+  &__logo {
+    display: inline-block;
+    font-size: 26px;
+    margin-bottom: 7px;
+  }
+
+  &__text {
+    font-size: 11px;
+    color: c.$light-color;
+    font-family: f.$secondary-font;
+  }
+
+  &__link {
+    &:nth-child(1) {
+      margin-right: 20px;
+    }
+  }
+}

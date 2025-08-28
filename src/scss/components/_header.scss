@@ -1,0 +1,151 @@
+@use "../settings/fonts" as f;
+@use "../settings/colors" as c;
+@use "../tools/mixins" as bp;
+
+.header {
+  height: 70px;
+  padding: 0 15px;
+  box-shadow: 0 3px 6px #00000029;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  background-color: white;
+
+  .container {
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    a {
+      text-decoration: none;
+    }
+  }
+
+  &__logo {
+    font-size: 32px;
+    color: c.$main-color;
+  }
+
+  /*NAVIGATION*/
+  .main-nav {
+    height: 100%;
+
+    &__list {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      gap: 52px;
+
+      @include bp.respond(mobile) {
+        position: absolute;
+        left: 0;
+        top: 73px;
+        flex-direction: column;
+        background-color: white;
+        width: 100%;
+        padding-bottom: 20px;
+        display: none;
+        gap: 0;
+      }
+    }
+
+    &__elem {
+      height: 100%;
+
+      @include bp.respond(mobile) {
+        padding: 0;
+        width: 100%;
+        background-color: white;
+
+        &:last-of-type {
+          .main-nav__link {
+            box-shadow: 0 8px 10px -5px #00000029;
+          }
+        }
+      }
+    }
+
+    &__link {
+      display: flex;
+      align-items: center;
+      height: 100%;
+      padding: 0 10px;
+      border-bottom: 4px solid transparent;
+      font-family: f.$secondary-font;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 3.28px;
+      color: c.$light-color;
+      text-transform: uppercase;
+
+
+      &:hover {
+        color: c.$main-text-color;
+        border-color: c.$main-color;
+      }
+
+      @include bp.respond(mobile) {
+        padding: 14px 20px;
+        width: 100%;
+      }
+    }
+  }
+
+  .menu {
+    &__btn {
+      display: none;
+
+      @include bp.respond(mobile) {
+        &:checked {
+          ~ .main-nav__list {
+            display: flex;
+          }
+
+          ~ .menu__toggle {
+            span {
+              &:nth-child(1) {
+                transform: rotate(45deg) translate(2px, 5px);
+              }
+
+              &:nth-child(2) {
+                opacity: 0;
+              }
+
+              &:nth-child(3) {
+                transform: rotate(-45deg) translate(2px, -5px);
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &__toggle {
+      display: none;
+
+      span {
+        width: 20px;
+        height: 2px;
+        display: block;
+        margin-bottom: 3px;
+        background-color: c.$main-color;
+        transition: .3s all ease-in-out;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+
+      @include bp.respond(mobile) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+      }
+    }
+  }
+}

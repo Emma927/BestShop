@@ -1,0 +1,49 @@
+@use "../settings/fonts" as f;
+@use "../settings/colors" as c;
+@use "../tools/mixins" as bp;
+
+.banner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 130px;
+  overflow: hidden;
+
+  @include bp.respond(mobile) {
+    margin-top: 100px;
+  }
+
+  &__title {
+    font-size: 49px;
+
+    @include bp.respond(mobile) {
+      font-size: 35px;
+    }
+  }
+
+  &__text {
+    margin: 20px 0 38px;
+    font-family: f.$secondary-font;
+    text-align: center;
+
+    @include bp.respond(mobile) {
+      padding-right: 70px;
+      padding-left: 70px;
+    }
+  }
+
+  &__img {
+    @include bp.respond(mobile) {
+      width: 220%;
+    }
+  }
+
+  .btn {
+    @include bp.respond(mobile) {
+      margin-right: 32px;
+      margin-left: 32px;
+      height: 100%;
+      padding: 22px 92px;
+    }
+  }
+}

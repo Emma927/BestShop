@@ -1,0 +1,36 @@
+@use "../settings/fonts" as f;
+@use "../settings/colors" as c;
+@use "../tools/mixins" as bp;
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: f.$main-font;
+  color: c.$main-text-color;
+}
+
+.container {
+  width: 100%;
+  max-width: 1352px;
+  margin: 0 auto;
+
+  @include bp.respond(mobile) {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+a {
+  text-decoration: none;
+}
+
+.title {
+  font-size: 36px;
+}
