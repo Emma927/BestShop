@@ -4,7 +4,7 @@ This project was created as an exercise during the JavaScript Developer course, 
 is a one-page website built entirely from scratch, based on a layout designed in Adobe XD.
 
 **Available online at:**  
-[https://best-shop-project.netlify.app](https://best-shop-project.netlify.app)
+[https://best-shop-app.netlify.app](https://best-shop-app.netlify.app)
 
 ## 🚀 Features
 
