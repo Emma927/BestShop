@@ -4,8 +4,8 @@ import { defineConfig, globalIgnores } from 'eslint/config';
 export default defineConfig([
     globalIgnores(['dist', 'node_modules']),
     {
-        files: ['**/*.js'], // wszystkie pliki JS
-        ignores: ['dist/**', 'node_modules/**'], // dodatkowe ignorowanie
+        files: ['**/*.js'], // all JS file
+        ignores: ['dist/**', 'node_modules/**'], // additional ignores
         extends: [js.configs.recommended, 'prettier'], // ESLint + Prettier
         plugins: ['prettier'],
         languageOptions: {
@@ -17,9 +17,9 @@ export default defineConfig([
             },
         },
         rules: {
-            'no-unused-vars': ['warn', { varsIgnorePattern: '^[A-Z_]' }], // ostrzeżenie dla nieużywanych zmiennych
-            'no-console': 'off', // pozwala używać console.log
-            'prettier/prettier': 'warn', // wymusza styl Prettiera
+            'no-unused-vars': ['warn', { varsIgnorePattern: '^[A-Z_]' }], // warning for unused variables
+            'no-console': 'off', // allows using console.log
+            'prettier/prettier': 'warn', // enforces Prettier style
         },
     },
 ]);

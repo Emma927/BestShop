@@ -37,7 +37,7 @@
     align-items: center;
     text-align: center;
     width: 372px;
-    border: 1px solid var(--accent-color);
+    border: 1px solid var(--accent-color); // Border uses the local CSS variable --accent-color defined in the article modifier
     border-radius: 18px;
     padding-top: 34px;
 

@@ -1,4 +1,4 @@
 export default {
-    singleQuote: true,  // używaj 'zamiast "
-    bracketSpacing: true, // spacje w obiektach: { a: 1 } zamiast {a:1}
+    singleQuote: true,  // use ' instead of "
+    bracketSpacing: true, // spaces in objects: { a: 1 } instead of {a:1}
 };

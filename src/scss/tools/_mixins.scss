@@ -1,13 +1,13 @@
 @use "sass:map";
 
-// Definicja breakpointów
+// Definition of breakpoints
 $breakpoints: (
         mobile: 792px,
         tablet: 1024px,
         notebook: 1352px
 );
 
-// Mixin dla media queries dynamicznie
+// Mixin for dynamic media queries
 @mixin respond($size) {
   $width: map.get($breakpoints, $size);
 
